@@ -3,6 +3,6 @@ module Sonos
   end
 end
 
-require 'sonos/device/base'
-require 'sonos/device/speaker'
-require 'sonos/device/accessory'
+require_relative 'device/base'
+require_relative 'device/speaker'
+require_relative 'device/accessory'

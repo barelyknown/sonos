@@ -3,9 +3,9 @@ module Sonos
   end
 end
 
-require 'sonos/endpoint/content_directory'
-require 'sonos/endpoint/device'
-require 'sonos/endpoint/rendering'
-require 'sonos/endpoint/a_v_transport'
-require 'sonos/endpoint/upnp'
-require 'sonos/endpoint/alarm'
+require_relative 'endpoint/content_directory'
+require_relative 'endpoint/device'
+require_relative 'endpoint/rendering'
+require_relative 'endpoint/a_v_transport'
+require_relative 'endpoint/upnp'
+require_relative 'endpoint/alarm'

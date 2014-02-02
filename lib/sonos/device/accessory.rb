@@ -1,5 +1,4 @@
-require 'savon'
-require 'sonos/endpoint'
+require_relative '../endpoint'
 
 module Sonos::Device
 

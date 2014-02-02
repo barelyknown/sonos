@@ -105,7 +105,7 @@ module Sonos::Endpoint::Alarm
   private
 
   def alarm_client
-    @alarm_client ||= Savon.client endpoint: "http://#{self.ip}:#{Sonos::PORT}#{ALARM_CLOCK_ENDPOINT}", namespace: Sonos::NAMESPACE
+    @alarm_client ||= Savon.client(Sonos.savon_config.merge(endpoint: "http://#{self.ip}:#{Sonos::PORT}#{ALARM_CLOCK_ENDPOINT}", namespace: Sonos::NAMESPACE))
   end
 
   def send_alarm_message(name, part = '')

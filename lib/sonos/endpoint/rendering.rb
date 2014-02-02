@@ -82,7 +82,7 @@ private
   end
 
   def rendering_client
-    @rendering_client ||= Savon.client endpoint: "http://#{self.ip}:#{Sonos::PORT}#{RENDERING_ENDPOINT}", namespace: Sonos::NAMESPACE, log_level: :error
+    @rendering_client ||= Savon.client(Sonos.savon_config.merge(endpoint: "http://#{self.ip}:#{Sonos::PORT}#{RENDERING_ENDPOINT}", namespace: Sonos::NAMESPACE))
   end
 
   def send_rendering_message(name, value = nil)

@@ -7,6 +7,7 @@ module Sonos::Endpoint::AVTransport
   # Get information about the currently playing track.
   # @return [Hash] information about the current track.
   def now_playing
+    puts "now playing!!!!!!!!!!!!!"
     response = send_transport_message('GetPositionInfo')
     body = response.body[:get_position_info_response]
     doc = Nokogiri::XML(body[:track_meta_data])
@@ -48,6 +49,7 @@ module Sonos::Endpoint::AVTransport
     set_av_transport_uri(uri) and return if uri
 
     # Play the currently selected track
+
     send_transport_message('Play')
   end
 
@@ -128,7 +130,7 @@ module Sonos::Endpoint::AVTransport
   end
 
   def transport_client
-    @transport_client ||= Savon.client endpoint: "http://#{self.group_master.ip}:#{Sonos::PORT}#{TRANSPORT_ENDPOINT}", namespace: Sonos::NAMESPACE, log_level: :error
+    @transport_client ||= Savon.client(Sonos.savon_config.merge(endpoint: "http://#{self.group_master.ip}:#{Sonos::PORT}#{TRANSPORT_ENDPOINT}", namespace: Sonos::NAMESPACE))
   end
 
   def send_transport_message(name, part = '<Speed>1</Speed>')

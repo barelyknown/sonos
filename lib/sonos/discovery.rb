@@ -1,7 +1,7 @@
 require 'socket'
 require 'ipaddr'
 require 'timeout'
-require 'sonos/topology_node'
+require_relative './topology_node'
 
 #
 # Inspired by https://github.com/rahims/SoCo, https://github.com/turboladen/upnp,
